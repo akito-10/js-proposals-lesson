@@ -26,3 +26,15 @@ UTC からのオフセットを表す文字列で、例えば、日本の場合�
 「Plain」から名前が始まるオブジェクトは、タイムゾーンが関連つけられていない日付を表す。(Wall-Clock Time)
 このようなオブジェクトと Exact Time (カレンダーや場所によらない UTC のような時間を表現するもの) の変換は、タイムゾーンとサマータイムによって、曖昧になってしまう。
 Temporal API はこのような曖昧さを解決する。
+
+### Temporal.Instant
+
+カレンダーや場所によらない、特定の時点での時刻を表す。（exact time）
+
+人間にとって読みやすい形式ではないため、人間が読みやすい形式には、Temporal.ZonedDateTime や Temporal.PlainDateTime と、Temporal.TimeZone や Temporal.Calendar を組み合わせて使用。
+
+### Temporal.ZonedDateTime
+
+特定のタイムゾーンやカレンダーにおける date/time オブジェクトで、地球上の特定の地位域からみた日時を表す。
+
+タイムゾーンやサマータイムを考慮した計算などに最適
