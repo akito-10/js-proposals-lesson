@@ -67,3 +67,7 @@ Temporal.TimeZone によって Temporal.ZonedDateTime に変換可能。タイ�
 
 5 分や 30 秒といった時間の長さを表す。日付演算処理や Temporal オブジェクト間の差分を表すために使う。
 「1 時間 30 分ではなく、『90 分』を表したい」などのケースがあるため、単位の自然繰り上げはなし。
+
+### Temporal.TimeZone
+
+IANA タイムゾーンや特定の UCT オフセット、または UTC そのものを表す。タイムゾーンは、UTC の日時をローカルの日時に変換するので、Temporal.TimeZone によって Temporal.Instant と Temporal.PlainDateTime を変換したり、特定の Temporal.Instant における UTC オフセットを取得したりできる。
