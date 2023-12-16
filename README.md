@@ -40,3 +40,30 @@ Temporal API はこのような曖昧さを解決する。
 タイムゾーンやサマータイムを考慮した計算などに最適
 
 ### Temporal.PlainDate
+
+特定の時間やタイムゾーンに紐付かないカレンダー上の日付を表す。
+
+Temporal.PlainYearMonth や Temporal.PlainMonthDay といった部分的な日付データへ、更に変換することもできる。
+
+### Temporal.PlainTime
+
+特定の日付やタイムゾーンに紐付かない wall-clock を表す。
+
+### Temporal.PlainDateTime
+
+カレンダー上の日付とタイムゾーンに紐付かない wall-clock を表す。
+
+Temporal.TimeZone によって Temporal.ZonedDateTime に変換可能。タイムゾーンを必要とする場合、特に他の値との演算を行いたい場合は、代わりに Temporal.ZonedDateTime を使用することを推奨。Temporal.ZonedDateTime を用いることで、サマータイムを自動的に考慮した日付の演算を行うことができる。
+
+### Temporal.PlainYearMonth
+
+「日」を除いた日付を表す。
+
+### Temporal.PlainMonthDay
+
+「年」を除いた日付を表す。
+
+### Temporal.Duration
+
+5 分や 30 秒といった時間の長さを表す。日付演算処理や Temporal オブジェクト間の差分を表すために使う。
+「1 時間 30 分ではなく、『90 分』を表したい」などのケースがあるため、単位の自然繰り上げはなし。
