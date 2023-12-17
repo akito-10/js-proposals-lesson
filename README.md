@@ -76,3 +76,27 @@ IANA タイムゾーンや特定の UCT オフセット、または UTC その�
 
 国際化や地域化のために他のカレンダーシステムを利用することもできる。
 日付には、カレンダーシステム関連の演算を行うために、Temporal.Calendar オブジェクトが関連付けられ、内部的にはこれらの日付の演算は、このカレンダーオブジェクトのメソッドによって実行される。
+
+### Temporal のキーコンセプト
+
+#### 曖昧性の解決
+
+##### Wall-Clock Time と Exact Time の違い
+
+Temporal の中核となるコンセプトは、Wall-Clock Time と Exact Time を区別すること。
+では、Wall-Clock Time と Exact Time とは何か？
+
+Wall-Clock Time とは、サマータイムやタイムゾーンによって影響を受けるようなローカルな時間のこと。
+
+Exact Time とは、国際的な定義を持っており、UTC という特別なタイムゾーンによって定義される時間のこと。
+
+Wall-Clock Time は、UTC Offset によって定義され、UTC からどれだけ離れているかを表す。
+例えば、日本の場合は、`+09:00` となる。
+
+Temporal.Instant は exact time だけを持ち、Temporal.ZonedDateTime は exact time の他にタイムゾーンやカレンダーシステムの情報を持つ。
+
+Exact Time を表す方法として、Unix epoch(1970 年 1 月 1 日の真夜中)からの差分を数値で表す。例えば、Temporal.Instant（exact-time タイプ）は epoch からの経過ナノ秒を表す BigInt で構成できる。
+
+##### タイムゾーンオフセットやサマータイム
+
+タイムゾーンは UTC と Wall-Clock がどのように関連しているかを定義する。
