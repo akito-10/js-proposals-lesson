@@ -71,3 +71,8 @@ Temporal.TimeZone によって Temporal.ZonedDateTime に変換可能。タイ�
 ### Temporal.TimeZone
 
 IANA タイムゾーンや特定の UCT オフセット、または UTC そのものを表す。タイムゾーンは、UTC の日時をローカルの日時に変換するので、Temporal.TimeZone によって Temporal.Instant と Temporal.PlainDateTime を変換したり、特定の Temporal.Instant における UTC オフセットを取得したりできる。
+
+### Temporal.Calendar
+
+国際化や地域化のために他のカレンダーシステムを利用することもできる。
+日付には、カレンダーシステム関連の演算を行うために、Temporal.Calendar オブジェクトが関連付けられ、内部的にはこれらの日付の演算は、このカレンダーオブジェクトのメソッドによって実行される。
