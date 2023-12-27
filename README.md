@@ -100,3 +100,14 @@ Exact Time を表す方法として、Unix epoch(1970 年 1 月 1 日の真夜�
 ##### タイムゾーンオフセットやサマータイム
 
 タイムゾーンは UTC と Wall-Clock がどのように関連しているかを定義する。
+つまりは、exact time を受け取り UTC オフセットを返す関数や、その反対方向への変換に対応する関数。
+
+Temporal は TZ database と呼ばれる、タイムゾーン関数の世界的なリポジトリを使用する。
+TZ database 以下のようなものを持つ。
+
+- time zone ID
+  - 地理的な範囲を市などで表したもの
+    例: America/Los_Angeles、Europe/Paris
+- UTC offset
+  - 1970 年 1 月 1 日からのすべての情報が記載されている
+  - サマータイムなどでオフセットが変更されることがある
