@@ -111,3 +111,22 @@ TZ database 以下のようなものを持つ。
 - UTC offset
   - 1970 年 1 月 1 日からのすべての情報が記載されている
   - サマータイムなどでオフセットが変更されることがある
+
+#### Temporal における Wall-Clock Time、Exact Time、タイムゾーン
+
+Temporal の API では、以下のように Wall-Clock Time、Exact Time、タイムゾーンを表す
+
+- Temporal.Instant
+  - exact time のみを表す
+- Temporal.PainDateTime
+  - カレンダー上の日付と wall-clock time を表し、これは、Temporal.Plane 〇〇のようなタイプでも同様。これらはデフォルトでは、'iso8601'だが、'islamic'や'japanese'といったカレンダーで上書きすることができる。
+- Temporal.TimeZone
+  - exact time と wall-clock を相互に変換するタイムゾーン関数を表す。また、ヘルパー関数を含まれる。
+- Temporal.ZonedDateTime
+  - 上記全てをカプセル化し、exact time、自身の wall-clock、それらを紐づけるタイムゾーンなどを表す。
+
+exact time を格納する Temporal タイプから、人間に読みやすいカレンダー上の日付を取得するには、以下の 2 つの方法がある。
+
+1. exact time がすでに Temporal.ZonedDateTime インスタンスで表されているなら、wall-clock time の値は簡単に取得できる。
+   .year や.hour、.toLocaleString()など
+2. exact time が Temporal.instant として表しているなら、タイムゾーンやカレンダー等を使って Temporal.ZonedDateTime を生成する必要がある。
