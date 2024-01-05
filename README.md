@@ -130,3 +130,12 @@ exact time を格納する Temporal タイプから、人間に読みやすい�
 1. exact time がすでに Temporal.ZonedDateTime インスタンスで表されているなら、wall-clock time の値は簡単に取得できる。
    .year や.hour、.toLocaleString()など
 2. exact time が Temporal.instant として表しているなら、タイムゾーンやカレンダー等を使って Temporal.ZonedDateTime を生成する必要がある。
+
+#### タイムゾーンオフセットの変更や DST による曖昧性
+
+タイムゾーンは、「local date / clock time」と「UTC date / time」を 1 対 1 に対応させるものだが、wall-clock time を exact time に変換するときに、どのオフセットを使えばいいかが明確ではない。
+そのため、曖昧性が生じ、1 つの UTC に対して、2 つの clock time が発生する。
+
+これは、サマータイムなどによるものがある。
+
+#### Temporal における日時の曖昧性の解決
